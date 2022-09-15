@@ -9,15 +9,15 @@ type Props = {
 }
 export const NoteCard = ({note, onArchive, onDelete, onEdit}:Props) => {
   return (
-    <div>
+    <div className="nes-container">
       <div>
-        <h3>{note.title}</h3>
+        <h3 className="title">{note.title}</h3>
         <p>Last Updated: {note.lastEdited}</p>
       </div>
-      <div>
+      <div style={{ display: "flex", gap: 12 }}>
         <Button variant="primary" onClick={()=>onArchive(note.id)}>Archivar</Button>
         <Button variant="secondary" onClick={()=>onEdit(note)}>Editar</Button>
-        <Button variant="notify" onClick={()=>onDelete(note.id)}>Borrar</Button>
+        <Button variant="info" onClick={()=>onDelete(note.id)}>Borrar</Button>
       </div>
     </div>
   )

@@ -1,8 +1,8 @@
 import type { Note } from "../types";
 
 type Props = {
-    note: Partial<Note>; 
-    onClose: VoidFunction; 
+    note: Partial<Note>; //partial porque voy a recibir una parte para editar en el modal una nota
+    onClose: VoidFunction; //no recibe parametros ni devuelve nada
     onChange: (field:string, value:string)=>void;
     onSave:VoidFunction;
   };
@@ -33,7 +33,7 @@ export default function NoteModal({note, onClose, onChange, onSave }: Props) {
         <form
           method="dialog"
           style={{
-            backgroundColor: "white",
+          
             zIndex: 1,
             padding: 12,
             border: "4px solid black",
@@ -41,11 +41,11 @@ export default function NoteModal({note, onClose, onChange, onSave }: Props) {
         >
           <h1 className="title">Create / Edit note</h1>
           <div className="nes-field">
-            <label htmlFor="title">Title</label>
+            <label htmlFor="title">Title</label> <br />
             <input onChange={(event)=>onChange('title',event.target.value)} value={note.title|| ''} id="title" className="nes-input" />
           </div>
           <div className="nes-field">
-            <label htmlFor="content">Content</label>
+            <label htmlFor="content">Content</label> <br/>
             <textarea onChange={(event)=>onChange('content',event.target.value)} value={note.content|| ''} id="content" className="nes-textarea" />
           </div>
           <div
